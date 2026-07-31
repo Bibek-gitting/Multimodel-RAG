@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from __future__ import annotations
 
 import sys
@@ -62,13 +61,6 @@ def initialize_rag_pipeline(source_directory: str | None = None):
         print("✅ RAG pipeline initialized.")
 
 
-async def query_rag_system(question: str):
-=======
-import sys
-from rag_base.clip_embedding import CLIPEmbeddingHandler
-from rag_base.index_builder import IndexBuilder
-from rag_base.qwen_model_handler import QwenModelHandler
-from rag_base.rag_pipeline import RAGPipeline
 
 # Global variable to store the initialized pipeline
 _rag_pipeline = None
@@ -91,12 +83,10 @@ def initialize_rag_pipeline(source_directory="./uploaded_media_files"):
     return _rag_pipeline
 
 def query_rag_system(question: str):
->>>>>>> 54ae8ae9ba589115b7514afd06d6ce90aa47ace8
     """
     Run a RAG query. Initializes the pipeline on first call.
     Can be imported and called from anywhere in your app.
     """
-<<<<<<< HEAD
     global _rag_pipeline
     if _rag_pipeline is None:
         initialize_rag_pipeline()
@@ -108,7 +98,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--download":
         # CLIPEmbeddingHandler()  # Ensure CLIP is locally available
         # QwenModelHandler().download_model_for_offline_use()
-=======
     if _rag_pipeline is None:
         initialize_rag_pipeline()
     return _rag_pipeline.query(question) # type: ignore
@@ -117,15 +106,11 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--download":
         CLIPEmbeddingHandler()  # Downloads CLIP to cache
         QwenModelHandler().download_model_for_offline_use()
->>>>>>> 54ae8ae9ba589115b7514afd06d6ce90aa47ace8
         sys.exit(0)
 
     # Run single query from CLI
     initialize_rag_pipeline()
     question = "What is happening in Hyderabad?"
     response = query_rag_system(question)
-<<<<<<< HEAD
     # print("📄 Answer:\n", response.get("answer"))
-=======
     print("📄 Answer:\n", response["answer"])
->>>>>>> 54ae8ae9ba589115b7514afd06d6ce90aa47ace8
