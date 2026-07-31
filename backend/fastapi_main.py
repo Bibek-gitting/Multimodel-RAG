@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import shutil
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
@@ -263,4 +262,3 @@ async def ask_question(req: QueryRequest):
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
->>>>>>> 54ae8ae9ba589115b7514afd06d6ce90aa47ace8
